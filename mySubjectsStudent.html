@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+    <title>Mis asignaturas alumno</title>
+</head>
+<body>
+    
+    <header>
+        <h3 class="title">BringLab</h3>
+        <div id="profile-header">
+            <button id="exit-button" onclick="location.href='index.html';">X</button>
+            <p>Mensajes: 2</p>
+        </div>
+    </header>
+    <button id="faq">?</button>
+
+    <div id="container-subjects"></div>
+
+    <button onclick="getSubjects()">Get Subjects</button>
+
+    <!--<button class="trigger">Click here to trigger the modal!</button>-->
+    <div class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h1>Información de la asignatura</h1>
+            <p>Horario: 10:00 - 11:00</p>
+            <p>Aula 3-2</p>
+        </div>
+    </div>
+</body>
+<script src="app.js"></script>
+</html>
