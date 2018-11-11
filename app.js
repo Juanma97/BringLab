@@ -1,10 +1,13 @@
-function getSubjects(){
+function myFunction() {
+    alert("Page is loaded");
+}
+function getSubjects(text){
     for (var i = 0; i < 15; i++){
         var div = document.createElement('div');
         div.className = 'trigger';
         div.id = 'trigger'+i;
         div.onclick = "document.getElementById('id01').style.display='block'"
-        div.textContent = 'Asignatura' + i;
+        div.textContent = text+ i;
         var container = document.getElementById("container-subjects");
         div.style.width = '300px';
         div.style.height = '20px';

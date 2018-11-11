@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="/css/style.css" type="text/css">
-    <title>Mis asignaturas alumno</title>
+    <title>Mis reservas</title>
 </head>
-<body onload='getSubjects("Asignatura ")'>
+<body onload='getSubjects("Reserva ")'>
     
     <header>
         <h3 class="title">BringLab</h3>
@@ -17,15 +17,17 @@
     <button id="faq">?</button>
 
     <div id="container-subjects"></div>
-
+    
 
     <!--<button class="trigger">Click here to trigger the modal!</button>-->
     <div class="modal">
         <div class="modal-content">
             <span class="close-button">&times;</span>
-            <h1>Información de la asignatura</h1>
-            <p>Horario: 10:00 - 11:00</p>
-            <p>Aula 3-2</p>
+            <h1>Información de la reserva</h1>
+            <p>Hora: 10:00 - 11:00</p>
+            <p>Aula 3-2 Puesto 120</p>
+            <button id="exit-button" onclick="">Modificar</button>
+            <button id="exit-button" onclick="">Cancelar</button>
         </div>
     </div>
 </body>
