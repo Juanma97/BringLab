@@ -1,6 +1,3 @@
-function myFunction() {
-    alert("Page is loaded");
-}
 function getSubjects(text){
     for (var i = 0; i < 15; i++){
         var div = document.createElement('div');
