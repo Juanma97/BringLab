@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+    <title>Mis alumnos</title>
+</head>
+<body>
+    
+    <header>
+        <h3 class="title">BringLab</h3>
+        <div id="profile-header">
+            <button id="exit-button" onclick="location.href='index.html';">X</button>
+            <p>Mensajes: 2</p>
+        </div>
+    </header>
+    <button id="faq">?</button>
+    <div id="left">
+        <h3 id="label">Elija asignatura</h3>
+        <select id="comboBox" onchange='getSubjects("Alumno ")'>
+            <option selected="true" disabled="true" value="--">--------</option>
+            <option value="GS1">Gestión del software 1</option>
+            <option value="GS2">Gestión del software 2</option>
+            <option value="IS1">Ingenieria del software 1</option>
+        </select>
+    </div>
+    <div id="container-subjects"></div>
+</body>
+<script src="app.js"></script>
+</html>
