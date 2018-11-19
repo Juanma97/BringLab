@@ -1,3 +1,4 @@
+var bool=false;
 function getSubjects(text){
     for (var i = 0; i < 15; i++){
         var div = document.createElement('div');
@@ -33,3 +34,21 @@ function getSubjects(text){
         }
 }
 
+function login(){
+    var user=document.getElementById("user").value;
+    var pass=document.getElementById("pass").value;
+    firebase.auth().signInWithEmailAndPassword(user, pass).catch(function(error) {
+        alert("Usuario o contraseña erroneos");
+      });
+    
+}
+function signout(){
+    firebase.auth().signOut().then(function(){
+        location.href="index.html";
+    });
+}
+firebase.auth().onAuthStateChanged(function(user){
+    if(user){
+        location.href="mainStudent.html";
+    }
+});
