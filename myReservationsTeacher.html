@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+    <title>Reserva Profesor</title>
+</head>
+
+<body>
+    <header>
+        <h3 class="title">BringLab</h3>
+        <div id="profile-header">
+            <button id="exit-button" onclick="location.href='index.html';">X</button>
+            <p>Mensajes: 2</p>
+        </div>
+    </header>
+    <button id="faq">?</button>
+
+    <div class="containerCR"> 
+        <div class="leftCR2"> 
+            <div class="panel">
+                <div><input type="button" onclick="highlightButton(1)" id="button-1" class="buttonStatus" value="Tutoría 1"></div>
+                <div><input type="button" onclick="highlightButton(2)" id="button-2" class="buttonStatus" value="Tutoría 2"></div>
+                <div><input type="button" onclick="highlightButton(3)" id="button-3" class="buttonStatus" value="Tutoría 3"></div>
+            </div>
+            <div><input type="button" class="bigButton" value="Modificar horarios"></div>
+        </div>
+        <div class="rigthCR2">
+            <div class="panel" id="infoTutoria"></div>
+            <div><input type="button" class="bigButton" value="Añadir horarios"></div>
+        </div>
+    </div>
+
+</body>
+<script src="appTeacherReservations.js"></script>
+</html>

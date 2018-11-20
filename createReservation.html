@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+    <title>Crear reservar</title>
+</head>
+
+<body onload="loadData();">
+    
+    <header>
+        <h3 class="title">BringLab</h3>
+        <div id="profile-header">
+            <button id="exit-button" onclick="location.href='index.html';">X</button>
+            <p>Mensajes: 2</p>
+        </div>
+    </header>
+    <button id="faq">?</button>
+
+    <div class="containerCR"> 
+        <div class="leftCR"> 
+            <div class="elementMenu">
+                <p>Elige una asignatura</p>
+                <select id="dropdown-subjects" onchange="loadDropDownLabData();"></select>
+            </div>
+            <div class="elementMenu">
+                <p>Elija que quiere reservar</p>
+                <select id="dropdown-labs" onchange="reloadLabInformation();"></select>
+            </div>
+        </div>
+        <div class="rigthCR"> 
+            <div id="container-info"></div>
+        </div>
+        <div class="clearCR"> </div>
+    </div>
+
+</body>
+<script src="appCreateReservation.js"></script>
+</html>

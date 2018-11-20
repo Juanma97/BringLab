@@ -37,7 +37,7 @@ header{
     width: 100%;
     height: 100px;
     background-color: rgb(48, 166, 206);
-    display: flex;
+    display: flex; 
 }
 
 #profile-header{
@@ -231,4 +231,86 @@ header{
     visibility: visible;
     transform: scale(1.0);
     transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s;
+}
+
+
+
+/* css miki */ 
+
+.leftCR {
+    float: left;
+}
+
+.rigthCR{
+    float: left;
+    margin-left: 100px;
+    width: 60%;
+}
+
+.leftCR2 {
+    float: left;
+    width: 35%;
+}
+
+.rigthCR2 {
+    float: left;
+    margin-left: 50px;
+    width: 45%;
+}
+
+.clearCR{
+    clear: both;
+}
+
+.panel {
+    border: solid 1px black;
+    padding: 5px;
+    height: 400px;
+}
+
+#container-info{
+    height: 500px;
+    border: 1px solid black;
+    overflow: auto;
+}
+
+.containerCR {
+    width: 80%;
+    margin-top: 10%;
+    margin-left: 100px;
+    /*margin-top: 50px;*/
+}
+
+.elementMenu {
+    margin-top: 10px;
+}
+
+.leftRT {
+    float: left;
+    width: 20%;
+}
+
+.rigthRT {
+    margin-right: 50%;
+    width: 20%;
+}
+
+.buttonStatus {
+    width: 100%;
+    height: 25px;
+    margin-top: 5px;
+    background-color: white;
+}
+
+.buttonSelected {
+    width: 100%;
+    height: 25px;
+    margin-top: 5px;
+    background-color: rgb(48, 166, 206);
+}
+
+.bigButton {
+    width: 100%;
+    margin-top: 15px;
+    height: 30px;
 }
