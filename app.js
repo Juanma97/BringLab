@@ -1,4 +1,3 @@
-var userUID = "";
 function getSubjects(text){
     for (var i = 0; i < 5; i++){
         var div = document.createElement('div');
@@ -32,6 +31,48 @@ function getSubjects(text){
         }
         window.addEventListener("click", windowOnClick);
         }
+}
+
+function getSubjects2() {
+    var i = 1;
+    var database = firebase.database();
+    var leadsRef = database.ref('Students');
+    leadsRef.on('value', function(snapshot) {
+        snapshot.forEach(function(childSnapshot) {
+        var childData = childSnapshot.val();
+        console.log(firebase.auth().currentUser);
+        if(childData.uid == firebase.auth().currentUser.uid){
+            var div = document.createElement('div');
+            div.className = 'trigger';
+            div.id = 'trigger'+i;
+            div.onclick = "document.getElementById('id01').style.display='block'"
+            div.textContent = childData.subjects.subject1;
+            var container = document.getElementById("container-subjects");
+            container.appendChild(div);
+            var modal = document.querySelector(".modal");
+            var trigger = document.querySelector("#trigger"+i);
+            console.log(trigger);
+            var closeButton = document.querySelector(".close-button");
+
+            function toggleModal() {
+                modal.classList.toggle("show-modal");
+            }
+    
+            function windowOnClick(event) {
+                if (event.target === modal) {
+                    toggleModal();
+                }
+            }
+
+            if(trigger && closeButton){
+                closeButton.addEventListener("click", toggleModal);
+                trigger.addEventListener("click", toggleModal);
+            }
+            window.addEventListener("click", windowOnClick);
+        }
+        i++;
+    });
+});
 }
 
 function login(){
