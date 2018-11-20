@@ -11,24 +11,25 @@
     <div id="container-login">
         <h3>BringLab</h3>
         <div id="container-form-login">
-            <input type="text" placeholder="DNI">
-            <input type="password" placeholder="Password">
-            <input type="submit" value="Iniciar Sesión" onclick="location.href='mainStudent.html';">
+            <input id="user" type="text" placeholder="DNI">
+            <input id="pass" type="password" placeholder="Password">
+            <input type="submit" value="Iniciar Sesión" onclick="login()">
         </div>
     </div>
     <button id="faq">?</button>
 </body>
 <script src="https://www.gstatic.com/firebasejs/5.5.8/firebase.js"></script>
 <script>
-  // Initialize Firebase
-  var config = {
-    apiKey: "AIzaSyB0SRTYFWQ6J8RFu4dJfhPfkJaG3GzNNOM",
-    authDomain: "bringlab-818c0.firebaseapp.com",
-    databaseURL: "https://bringlab-818c0.firebaseio.com",
-    projectId: "bringlab-818c0",
-    storageBucket: "bringlab-818c0.appspot.com",
-    messagingSenderId: "256629824808"
-  };
-  firebase.initializeApp(config);
-</script>
+    // Initialize Firebase
+    var config = {
+        apiKey: "AIzaSyB0SRTYFWQ6J8RFu4dJfhPfkJaG3GzNNOM",
+        authDomain: "bringlab-818c0.firebaseapp.com",
+        databaseURL: "https://bringlab-818c0.firebaseio.com",
+        projectId: "bringlab-818c0",
+        storageBucket: "bringlab-818c0.appspot.com",
+        messagingSenderId: "256629824808"
+    };
+    firebase.initializeApp(config);
+    </script>
+<script src="app.js"></script>
 </html>
