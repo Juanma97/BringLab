@@ -1,3 +1,4 @@
+var userUID = "";
 function getSubjects(text){
     for (var i = 0; i < 5; i++){
         var div = document.createElement('div');
@@ -49,8 +50,10 @@ function signout(){
 firebase.auth().onAuthStateChanged(function(user){
     if(window.location.href.includes("index.html")){
         if(user && user.email.includes("@alu.ulpgc")){
+            userUID = user.uid;
             location.href="mainStudent.html";
         }else if(user && user.email.includes("@ulpgc")){
+            userUID = user.uid;
             location.href="mainTeacher.html";
         }
     }
