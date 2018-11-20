@@ -7,19 +7,40 @@
 </head>
 <body>
     <header>
-        <h3 class="title">BringLab</h3>
+        <h3 class="title">BringLab Profesor</h3>
         <div id="profile-header">
-            <button id="exit-button" onclick="location.href='index.html';">X</button>
-            <p>Mensajes: 2</p>
+            <button id="exit-button" onclick="signout()">X</button>
         </div>
     </header>
 
     <div id="container-teacher">
         <div class="menu-teacher" onclick="location.href='myStudentsTeacher.html';"><h3>Mis alumnos</h3></div>
-        <div class="menu-teacher"><h3>Gestion</h3></div>
         <div class="menu-teacher" onclick="location.href='mySubjectsTeacher.html';"><h3>Mis asignaturas</h3></div>
-        <div class="menu-teacher"><h3>Mis tutorías</h3></div>
+        <div class="menu-teacher" onclick="location.href='myReservationsTeacher.html'"><h3>Mis tutorías</h3></div>
     </div>
     <button id="faq">?</button>
+    <div class="message">
+        <p>Mensajes: 2</p>
+        <hr>
+        <h2>Mensaje 1</h2>
+        <p>jajsdfhsdjfgkdhsgk</p>
+        <hr>
+        <h2>Mensaje 2</h2>
+        <p>jasdjfjdkgsdf</p>
+    </div>
 </body>
+<script src="https://www.gstatic.com/firebasejs/5.5.8/firebase.js"></script>
+<script>
+    // Initialize Firebase
+    var config = {
+        apiKey: "AIzaSyB0SRTYFWQ6J8RFu4dJfhPfkJaG3GzNNOM",
+        authDomain: "bringlab-818c0.firebaseapp.com",
+        databaseURL: "https://bringlab-818c0.firebaseio.com",
+        projectId: "bringlab-818c0",
+        storageBucket: "bringlab-818c0.appspot.com",
+        messagingSenderId: "256629824808"
+    };
+    firebase.initializeApp(config);
+    </script>
+<script src="app.js"></script>
 </html>

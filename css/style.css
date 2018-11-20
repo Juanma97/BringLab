@@ -42,15 +42,15 @@ header{
 
 #profile-header{
     width: 20%;
-    border-left: 3px solid white;
     display: flex;
     align-items: center;
+    justify-content: center;
 }
 
 #profile-header button{
     height: 50px;
     width: 50px;
-    margin: 0 0 0 16px;
+    margin: 0 0 0 0;
     font-size: 18px;
     color: rgb(48, 166, 206);
     background: white;
@@ -86,7 +86,37 @@ header{
     color: white;
 }
 
-
+.title:hover{
+    cursor: pointer;
+}
+.login-btn:hover{
+    cursor: pointer;
+}
+.message{
+    position: absolute;
+    left: 50px;
+    bottom: 0;
+    width: 250px;
+    height: 40px;
+    background: rgb(48, 166, 206);
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    overflow: auto;
+    border-radius: 2%;
+}
+.message p{
+    padding: 16px;
+}
+.message h2{
+    padding: 16px;
+}
+.message:hover{
+    transition: 400ms;
+    height: 250px;
+}
+#exit-button:hover{
+    cursor: pointer;
+}
 #container-login{
     width: 500px;
     height: 400px;
@@ -135,6 +165,16 @@ header{
 
 #container-teacher{
     justify-content: center;
+    margin-top: 20%;
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-rows: 200px 200px;
+    grid-template-columns: 400px 400px 400px;
+}
+
+#container-student{
+    justify-content: center;
     margin-top: 15%;
     width: 100%;
     height: 100%;
@@ -159,6 +199,7 @@ header{
     transition: 1000ms;
     background-color: white;
     color: black; 
+    cursor: pointer;
 }
 
 #container-subjects{

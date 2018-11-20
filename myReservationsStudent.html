@@ -10,8 +10,7 @@
     <header>
         <h3 class="title">BringLab</h3>
         <div id="profile-header">
-            <button id="exit-button" onclick="location.href='index.html';">X</button>
-            <p>Mensajes: 2</p>
+            <button id="exit-button" onclick="signout()">X</button>
         </div>
     </header>
     <button id="faq">?</button>
@@ -31,5 +30,17 @@
         </div>
     </div>
 </body>
+<script>
+    // Initialize Firebase
+    var config = {
+        apiKey: "AIzaSyB0SRTYFWQ6J8RFu4dJfhPfkJaG3GzNNOM",
+        authDomain: "bringlab-818c0.firebaseapp.com",
+        databaseURL: "https://bringlab-818c0.firebaseio.com",
+        projectId: "bringlab-818c0",
+        storageBucket: "bringlab-818c0.appspot.com",
+        messagingSenderId: "256629824808"
+    };
+    firebase.initializeApp(config);
+    </script>
 <script src="app.js"></script>
 </html>

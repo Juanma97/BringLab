@@ -1,6 +1,5 @@
-var bool=false;
 function getSubjects(text){
-    for (var i = 0; i < 15; i++){
+    for (var i = 0; i < 5; i++){
         var div = document.createElement('div');
         div.className = 'trigger';
         div.id = 'trigger'+i;
@@ -48,7 +47,11 @@ function signout(){
     });
 }
 firebase.auth().onAuthStateChanged(function(user){
-    if(user){
-        location.href="mainStudent.html";
+    if(window.location.href.includes("index.html")){
+        if(user && user.email.includes("@alu.ulpgc")){
+            location.href="mainStudent.html";
+        }else if(user && user.email.includes("@ulpgc")){
+            location.href="mainTeacher.html";
+        }
     }
 });

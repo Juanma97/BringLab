@@ -7,20 +7,28 @@
 </head>
 <body>
     <header>
-        <h3 class="title">BringLab</h3>
+        <h3 class="title">BringLab Estudiante</h3>
         <div id="profile-header">
             <button id="exit-button" onclick="signout()">X</button>
-            <p>Mensajes: 2</p>
         </div>
     </header>
 
-    <div id="container-teacher">
+    <div id="container-student">
         <div class="menu-teacher" onclick="location.href='createReservation.html';"><h3>Realizar una reserva</h3></div>
-        <div class="menu-teacher"><h3>Mis profesores</h3></div>
+        <div class="menu-teacher" onclick="location.href='myTeachersStudent.html';"><h3>Mis profesores</h3></div>
         <div class="menu-teacher" onclick="location.href='myReservationsStudent.html';"><h3>Gestionar reservas</h3></div>
         <div class="menu-teacher" onclick="location.href='mySubjectsStudent.html';"><h3>Mis asignaturas</h3></div>
     </div>
     <button id="faq">?</button>
+    <div class="message">
+        <p>Mensajes: 2</p>
+        <hr>
+        <h2>Mensaje 1</h2>
+        <p>jajsdfhsdjfgkdhsgk</p>
+        <hr>
+        <h2>Mensaje 2</h2>
+        <p>jasdjfjdkgsdf</p>
+    </div>
 </body>
 <script src="https://www.gstatic.com/firebasejs/5.5.8/firebase.js"></script>
 <script>
