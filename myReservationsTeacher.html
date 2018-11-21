@@ -3,20 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="/css/style.css" type="text/css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <title>Reserva Profesor</title>
 </head>
 
 <body>
     <header>
-        <h3 class="title">BringLab</h3>
+        <h3 class="title">BringLab Profesor | Mis tutorias</h3>
         <div id="profile-header">
-            <button id="exit-button" onclick="signout()">X</button>
+            <i class="large material-icons" onclick="signout()">exit_to_app</i>
         </div>
     </header>
     <button id="faq">?</button>
 
     <div class="containerCR"> 
-        <div class="leftCR2"> 
+        <div> 
             <div class="panel">
                 <div><input type="button" onclick="highlightButton(1)" id="button-1" class="buttonStatus" value="Tutoría 1"></div>
                 <div><input type="button" onclick="highlightButton(2)" id="button-2" class="buttonStatus" value="Tutoría 2"></div>
@@ -24,7 +26,7 @@
             </div>
             <div><input type="button" class="bigButton" value="Modificar horarios"></div>
         </div>
-        <div class="rigthCR2">
+        <div>
             <div class="panel" id="infoTutoria"></div>
             <div><input type="button" class="bigButton" value="Añadir horarios"></div>
         </div>

@@ -3,6 +3,17 @@
     list-style: none;
     padding: 0;
 }
+
+.material-icons:hover{
+    cursor: pointer;
+    color: white;
+}
+
+.loading{
+    visibility: hidden;
+    margin: 32px;
+    font-family: 'Roboto', sans-serif;
+}
 .trigger{
     width: 300px;
     height: 20px;
@@ -18,7 +29,7 @@
     border-radius: 100%;
     background-color: rgb(48, 166, 206);
     font-size: 32px;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Roboto', sans-serif;
     justify-content: center;
     align-items: center;
     color: white;
@@ -30,7 +41,9 @@
     background: -webkit-linear-gradient(to top, #ffffff 55%,  rgb(48, 166, 206) 55%);  /* Chrome 10-25, Safari 5.1-6 */
     background: linear-gradient(to top, #ffffff 55%,  rgb(48, 166, 206) 55%); 
     display: flex;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
     margin-top: 10%;
     height: 100%;
     background-repeat: no-repeat;
@@ -42,6 +55,10 @@ header{
     height: 100px;
     background-color: rgb(48, 166, 206);
     display: flex; 
+    flex-direction: row;
+}
+article, aside, footer, header, nav, section{
+    display: flex !important; 
 }
 
 #profile-header{
@@ -51,34 +68,9 @@ header{
     justify-content: center;
 }
 
-#profile-header button{
-    height: 50px;
-    width: 50px;
-    margin: 0 0 0 0;
-    font-size: 18px;
-    color: rgb(48, 166, 206);
-    background: white;
-    border-radius: 100%;
-    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-}
-
 header{
     position: fixed;
     top: 0;
-}
-
-#profile-header p{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-family: Arial, Helvetica, sans-serif;
-    color: rgb(48, 166, 206);
-    margin: 0 0 0 32px;
-    height: 50%;
-    width: 50%;
-    background-color: white;
-    line-height: 100px;
-    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
 }
 
 .title{
@@ -86,7 +78,7 @@ header{
     margin: 0 0 0 32px;
     line-height: 100px;
     font-size: 32px;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Roboto', sans-serif;
     color: white;
 }
 
@@ -103,7 +95,7 @@ header{
     width: 250px;
     height: 40px;
     background: rgb(48, 166, 206);
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Roboto', sans-serif;
     color: white;
     overflow: auto;
     border-radius: 2%;
@@ -130,7 +122,7 @@ header{
 
 #container-login h3{
     text-align: center;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Roboto', sans-serif;
     color:  rgb(48, 166, 206);
     font-size: 48px;
     margin: 32px 16px 16px 16px;
@@ -192,7 +184,7 @@ header{
     display: flex;
     justify-content: center;
     align-items: center;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Roboto', sans-serif;
     background-color: rgb(48, 166, 206);
     margin: 0 32px 32px 0;
     color: white;
@@ -204,13 +196,15 @@ header{
     background-color: white;
     color: black; 
     cursor: pointer;
+    -webkit-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    transform: scale(1.1);
 }
 
 #container-subjects{
     width: 50%;
     height: 500px;
     margin: 10% 64px 32px 64px;
-    border: 1px solid black;
     overflow: auto;
 }
 #left{
@@ -227,7 +221,7 @@ header{
     box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
     background-color: rgb(48, 166, 206);
     color: white;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Roboto', sans-serif;
     cursor: pointer;
 }
 
@@ -281,27 +275,12 @@ header{
 
 
 /* css miki */ 
-
-.leftCR {
-    float: left;
-}
-
 .rigthCR{
-    float: left;
     margin-left: 100px;
     width: 60%;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
 }
 
-.leftCR2 {
-    float: left;
-    width: 35%;
-}
-
-.rigthCR2 {
-    float: left;
-    margin-left: 50px;
-    width: 45%;
-}
 
 .clearCR{
     clear: both;
@@ -315,15 +294,20 @@ header{
 
 #container-info{
     height: 500px;
-    border: 1px solid black;
+    background: lightgray;
     overflow: auto;
 }
 
+#container-info p{
+    margin: 16px;
+}
+
 .containerCR {
+    font-family: 'Roboto', sans-serif;
     width: 80%;
     margin-top: 10%;
     margin-left: 100px;
-    /*margin-top: 50px;*/
+    display: flex;
 }
 
 .elementMenu {
@@ -345,6 +329,12 @@ header{
     height: 25px;
     margin-top: 5px;
     background-color: white;
+}
+
+.containerCR{
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-column-gap: 16px;
 }
 
 .buttonSelected {
