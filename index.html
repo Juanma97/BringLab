@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="/css/style.css" type="text/css">
+    <link rel="stylesheet" href="/css/spinner.css" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <title>Login</title>
 </head>
 <body id="login-body">
@@ -16,6 +18,8 @@
             <input class="login-btn" type="submit" value="Iniciar Sesión" onclick="login()">
         </div>
     </div>
+    <div class="lds-ring"><div></div><div></div><div></div><div></div></div>
+    <h3 class="loading">Cargando..</h3>
     <button id="faq">?</button>
 </body>
 <script src="https://www.gstatic.com/firebasejs/5.5.8/firebase.js"></script>

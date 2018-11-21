@@ -76,12 +76,16 @@ function getSubjects2() {
 }
 
 function login(){
-    
+    document.querySelector(".loading").style.visibility = "visible";
+    document.querySelector(".lds-ring").style.visibility = "visible";
     var user=document.getElementById("user").value;
     var pass=document.getElementById("pass").value;
-    firebase.auth().signInWithEmailAndPassword(user, pass).catch(function(error) {
+    firebase.auth().signInWithEmailAndPassword(user, pass).then(function(){
+
+    })
+    .catch(function(error) {
         alert("Usuario o contraseña erroneos");
-      });
+    });
     
 }
 function signout(){
