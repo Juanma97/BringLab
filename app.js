@@ -76,6 +76,7 @@ function getSubjects2() {
 }
 
 function login(){
+    
     var user=document.getElementById("user").value;
     var pass=document.getElementById("pass").value;
     firebase.auth().signInWithEmailAndPassword(user, pass).catch(function(error) {
