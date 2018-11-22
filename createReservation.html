@@ -16,7 +16,13 @@
             <i class="large material-icons" onclick="signout()">exit_to_app</i>
         </div>
     </header>
-    <button id="faq">?</button>
+    <button class="trigger1" id="faq">?</button>
+    <div class="modal1">
+        <div class="modal-content1">
+            <span class="close-button1">&times;</span>
+            <h1>Aqui podra reservar un aula o un puesto de labortorio</h1>
+        </div>
+    </div>
 
     <div class="containerCR"> 
         <div class="leftCR"> 
@@ -36,5 +42,19 @@
     </div>
 
 </body>
+<script src="https://www.gstatic.com/firebasejs/5.5.8/firebase.js"></script>
+<script>
+    // Initialize Firebase
+    var config = {
+        apiKey: "AIzaSyB0SRTYFWQ6J8RFu4dJfhPfkJaG3GzNNOM",
+        authDomain: "bringlab-818c0.firebaseapp.com",
+        databaseURL: "https://bringlab-818c0.firebaseio.com",
+        projectId: "bringlab-818c0",
+        storageBucket: "bringlab-818c0.appspot.com",
+        messagingSenderId: "256629824808"
+    };
+    firebase.initializeApp(config);
+    </script>
 <script src="appCreateReservation.js"></script>
+<script src="app.js"></script>
 </html>
