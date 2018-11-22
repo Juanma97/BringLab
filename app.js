@@ -104,3 +104,21 @@ firebase.auth().onAuthStateChanged(function(user){
         }
     }
 });
+var modal = document.querySelector(".modal");
+var trigger = document.querySelector(".trigger");
+var closeButton = document.querySelector(".close-button");
+
+function toggleModal() {
+    modal.classList.toggle("show-modal");
+}
+
+function windowOnClick(event) {
+    if (event.target === modal) {
+        toggleModal();
+    }
+}
+if(trigger && closeButton){
+    closeButton.addEventListener("click", toggleModal);
+    trigger.addEventListener("click", toggleModal);
+}
+window.addEventListener("click", windowOnClick)

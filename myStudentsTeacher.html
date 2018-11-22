@@ -15,7 +15,13 @@
                     <i class="large material-icons" onclick="signout()">exit_to_app</i>
                 </div>
             </header>
-    <button id="faq">?</button>
+    <button class="trigger" id="faq">?</button>
+    <div class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h1>Aqui puedes ver los estudiantes por tus asignaturas</h1>
+        </div>
+    </div>
     <div id="left">
         <h3 id="label">Elija asignatura</h3>
         <select id="comboBox" onchange='getSubjects("Alumno ")'>
