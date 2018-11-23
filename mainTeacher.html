@@ -7,7 +7,7 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <title>Profesor</title>
 </head>
-<body>
+<body onload='mensajes()'>
     <header>
         <h3 class="title">BringLab | Profesor </h3>
         <div id="profile-header">
@@ -27,14 +27,8 @@
             <h1>Este es el menú principal de su usuario, desde aqui podrá dirigirse a sus distintas utilidades</h1>
         </div>
     </div>
-    <div class="message">
-        <p>Mensajes: 2</p>
-        <hr>
-        <h2>Mensaje 1</h2>
-        <p>jajsdfhsdjfgkdhsgk</p>
-        <hr>
-        <h2>Mensaje 2</h2>
-        <p>jasdjfjdkgsdf</p>
+    <div id="message" class="message">
+        <p id="count"></p>
     </div>
 </body>
 <script src="https://www.gstatic.com/firebasejs/5.5.8/firebase.js"></script>

@@ -74,6 +74,31 @@ function getSubjects2() {
     });
 });
 }
+function mensajes() {
+    var i = 1;
+    var database = firebase.database();
+    var leadsRef = database.ref('Messages');
+    var hr = document.createElement('hr');
+    leadsRef.on('value', function(snapshot) {
+        snapshot.forEach(function(childSnapshot) {
+        var childData = childSnapshot.val();
+        if(childData.receiver == firebase.auth().currentUser.uid){
+            console.log("hola")
+            var h2 = document.createElement('h2');
+            var p = document.createElement('p');
+            h2.textContent = "Mensaje "+i;
+            p.textContent = childData.message;
+            document.getElementById('message').appendChild(hr);
+            document.getElementById('message').appendChild(h2);
+            document.getElementById('message').appendChild(p);
+            i++;
+        }
+    });
+    i--;
+    document.getElementById('count').textContent="Mensajes: "+i;
+    
+});
+}
 
 function login(){
     document.querySelector(".loading").style.visibility = "visible";
