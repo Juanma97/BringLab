@@ -40,6 +40,10 @@ function getSubjects2() {
     leadsRef.on('value', function(snapshot) {
         snapshot.forEach(function(childSnapshot) {
         var childData = childSnapshot.val();
+        console.log("child", childData.subjects)
+        for(let j in childData.subjects){
+            console.log("j", childData.subjects[j]);
+        
         console.log(firebase.auth().currentUser);
         if(childData.uid == firebase.auth().currentUser.uid){
             var div = document.createElement('div');
@@ -53,7 +57,7 @@ function getSubjects2() {
             var trigger = document.querySelector("#trigger"+i);
             console.log(trigger);
             var closeButton = document.querySelector(".close-button");
-
+        }
             function toggleModal() {
                 modal.classList.toggle("show-modal");
             }
