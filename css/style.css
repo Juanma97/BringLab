@@ -204,9 +204,16 @@ header{
 #container-subjects{
     width: 50%;
     height: 500px;
-    margin: 10% 64px 32px 64px;
+    position: absolute;
+    top: 100px;
+    margin: 16px;
     overflow: auto;
 }
+#container-subjects h3{
+    margin: 16px;
+    font-family: 'Roboto', sans-serif;
+}
+
 #left{
     float: left
 }
