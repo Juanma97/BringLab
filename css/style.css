@@ -14,7 +14,12 @@
     margin: 32px;
     font-family: 'Roboto', sans-serif;
 }
-.trigger{
+.trigger {
+    width: 300px;
+    height: 20px;
+    margin: 16px;
+}
+.centrar {
     width: 300px;
     height: 20px;
     margin: 16px;
@@ -104,6 +109,9 @@ header{
     padding: 16px;
 }
 .message h2{
+    padding: 16px;
+}
+.message h3{
     padding: 16px;
 }
 .message:hover{
@@ -416,4 +424,7 @@ header{
     visibility: visible;
     transform: scale(1.0);
     transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s;
+}
+.centrado{
+    text-align: center;
 }
