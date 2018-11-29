@@ -83,7 +83,7 @@ function mensajes() {
     var enviar = document.querySelector(".trigger");
     var hr = document.createElement('hr');
     var modal = document.querySelector(".modal");
-    leadsRef.on('value', function(snapshot) {
+    leadsRef.once('value', function(snapshot) {
         snapshot.forEach(function(childSnapshot) {
         var childData = childSnapshot.val();
         if(childData.receiver == firebase.auth().currentUser.uid){
