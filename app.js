@@ -1,4 +1,5 @@
 function getSubjects2() {
+    document.querySelector(".loading").style.visibility = "visible";
     var i = 1;
     var database = firebase.database();
     var leadsRef = database.ref('Students');
@@ -14,13 +15,14 @@ function getSubjects2() {
             var div = document.createElement('div');
             div.className = 'trigger';
             div.id = 'trigger'+i;
-            div.onclick = "document.getElementById('id01').style.display='block'"
+            div.onclick = "document.getElementById('id0'+i).style.display='block'"
             div.textContent = childData.subjects[j];
             var container = document.getElementById("container-subjects");
             container.appendChild(div);
             var modal = document.querySelector(".modal");
             var trigger = document.querySelector("#trigger"+i);
             console.log(trigger);
+            i++;
             var closeButton = document.querySelector(".close-button");
         }
             function toggleModal() {
@@ -39,7 +41,8 @@ function getSubjects2() {
             }
             window.addEventListener("click", windowOnClick);
         }
-        i++;
+        document.querySelector(".loading").style.visibility = "hidden";
+
     });
 });
 }
@@ -116,3 +119,106 @@ if(trigger && closeButton){
     trigger.addEventListener("click", toggleModal);
 }
 window.addEventListener("click", windowOnClick)
+
+
+function getTeachers() {
+    document.querySelector(".loading").style.visibility = "visible";
+    var i = 1;
+    var database = firebase.database();
+    var leadsRef = database.ref('Students');
+    leadsRef.on('value', function(snapshot) {
+        snapshot.forEach(function(childSnapshot) {
+        var childData = childSnapshot.val();
+        console.log("child", childData.subjects)
+        for(let j in childData.teachers){
+            console.log("j", childData.teachers[j]);
+        
+        console.log(firebase.auth().currentUser);
+        if(childData.uid == firebase.auth().currentUser.uid){
+            var div = document.createElement('div');
+            div.className = 'trigger';
+            div.id = 'trigger'+i;
+            div.onclick = "document.getElementById('id01').style.display='block'"
+            div.textContent = childData.teachers[j];
+            var container = document.getElementById("container-subjects");
+            container.appendChild(div);
+            var modal = document.querySelector(".modal");
+            var trigger = document.querySelector("#trigger"+i);
+            console.log(trigger);
+            var closeButton = document.querySelector(".close-button");
+        }
+            function toggleModal() {
+                modal.classList.toggle("show-modal");
+            }
+    
+            function windowOnClick(event) {
+                if (event.target === modal) {
+                    toggleModal();
+                }
+            }
+
+            if(trigger && closeButton){
+                closeButton.addEventListener("click", toggleModal);
+                trigger.addEventListener("click", toggleModal);
+            }
+            window.addEventListener("click", windowOnClick);
+            
+        }
+        document.querySelector(".loading").style.visibility = "hidden";      
+        i++;
+    });
+});
+
+
+}
+
+function getReservations() {
+    document.querySelector(".loading").style.visibility = "visible";
+    var i = 1;
+    var database = firebase.database();
+    var leadsRef = database.ref('Students');
+    leadsRef.on('value', function(snapshot) {
+        snapshot.forEach(function(childSnapshot) {
+        var childData = childSnapshot.val();
+        console.log("child", childData.reservas)
+        for(let j in childData.reservas){
+            console.log("j", childData.reservas[j]);
+        
+        console.log(firebase.auth().currentUser);
+        if(childData.uid == firebase.auth().currentUser.uid){
+            var div = document.createElement('div');
+            div.className = 'trigger';
+            div.id = 'trigger'+i;
+            div.onclick = "document.getElementById('id01').style.display='block'"
+            div.textContent = childData.reservas[j];
+            var container = document.getElementById("container-subjects");
+            container.appendChild(div);
+            var modal = document.querySelector(".modal");
+            var trigger = document.querySelector("#trigger"+i);
+            console.log(trigger);
+            var closeButton = document.querySelector(".close-button");
+        }
+            function toggleModal() {
+                modal.classList.toggle("show-modal");
+            }
+    
+            function windowOnClick(event) {
+                if (event.target === modal) {
+                    toggleModal();
+                }
+            }
+
+            if(trigger && closeButton){
+                closeButton.addEventListener("click", toggleModal);
+                trigger.addEventListener("click", toggleModal);
+            }
+            window.addEventListener("click", windowOnClick);
+            
+            i++;
+        }
+        document.querySelector(".loading").style.visibility = "hidden";      
+    });
+});
+
+
+}
