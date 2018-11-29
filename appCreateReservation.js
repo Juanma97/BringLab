@@ -68,7 +68,7 @@ function loadDropDownLabData() {
         var subjectOption = document.createElement("option");
         subjectOption.value = i++;
         subjectOption.text = childData.name;
--        labsDropDownMenu.add(subjectOption);
+        labsDropDownMenu.add(subjectOption);
         });
     });
     classes.on('value', function(snapshot) {
@@ -85,7 +85,23 @@ function loadDropDownLabData() {
 
 // Cada vez que se cambie de lab, recargar la info que tiene
 function reloadLabInformation() {
+    var name=document.getElementById("options")[document.getElementById("options").value].text;
+    var database = firebase.database();
+    var leadsRef = database.ref('Labs');
+    var classes = database.ref('Classrooms');
     var labInformationPanel = document.getElementById("container-info");
+    console.log(name);
+    leadsRef.on('value', function(snapshot) {
+        snapshot.forEach(function(childSnapshot) {
+        var childData = childSnapshot.val();
+        if(childData.name==name){
+            console.log(childData.puestos);
+                
+
+        }
+        });
+    });
+    
     labSelected = document.getElementById("dropdown-labs").value;
     labInformationPanel.innerHTML = "<p>" + labInformation[subjectSelected][labSelected] + "</p>";
 }
