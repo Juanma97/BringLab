@@ -222,3 +222,108 @@ function getReservations() {
 
 
 }
+
+
+function getData() {
+    document.querySelector(".loading").style.visibility = "visible";
+    var i = 1;
+    var database = firebase.database();
+    var leadsRef = database.ref('Labs');
+    leadsRef.on('value', function(snapshot) {
+        snapshot.forEach(function(childSnapshot) {
+        var childData = childSnapshot.val();
+        console.log("child", childData.name)
+        if(childData.uid == firebase.auth().currentUser.uid){
+            var div = document.createElement('div');
+            div.className = 'trigger';
+            div.id = 'trigger'+i;
+            div.onclick = "document.getElementById('id01').style.display='block'"
+            div.textContent = childData.name;
+            var container = document.getElementById("container-reservations");
+            console.log("container", container)
+            container.appendChild(div);
+            var modal = document.querySelector(".modal");
+            var trigger = document.querySelector("#trigger"+i);
+            console.log(trigger);
+            var closeButton = document.querySelector(".close-button");
+        }
+            function toggleModal() {
+                modal.classList.toggle("show-modal");
+            }
+    
+            function windowOnClick(event) {
+                if (event.target === modal) {
+                    toggleModal();
+                }
+            }
+
+            if(trigger && closeButton){
+                closeButton.addEventListener("click", toggleModal);
+                trigger.addEventListener("click", toggleModal);
+            }
+            window.addEventListener("click", windowOnClick);
+            
+            i++;
+        document.querySelector(".loading").style.visibility = "hidden";      
+    });
+});
+
+
+}
+
+function getStudents() {
+    document.querySelector(".loading").style.visibility = "visible";
+    var i = 1;
+    var database = firebase.database();
+    var leadsRef = database.ref('Teachers');
+    leadsRef.on('value', function(snapshot) {
+        snapshot.forEach(function(childSnapshot) {
+        var childData = childSnapshot.val();
+        console.log("child", childData.subjects)
+        for(let j in childData.subjects){
+            var titulo = document.createElement('h3');
+            titulo.innerHTML = childData.subjects[j].name;
+            var tituloContainer = document.getElementById("container-subjects");
+            tituloContainer.appendChild(titulo);
+            console.log("data", childData.subjects[j].students)
+            for(let x in childData.subjects[j].students){
+                console.log("x", childData.subjects[j].students[x]);
+                
+                if(childData.uid == firebase.auth().currentUser.uid){
+                    var div = document.createElement('div');
+                    div.className = 'trigger';
+                    div.id = 'trigger'+i;
+                    div.onclick = "document.getElementById('id01').style.display='block'"
+                    div.textContent = childData.subjects[j].students[x];
+                    var container = document.getElementById("container-subjects");
+                    container.appendChild(div);
+                    var modal = document.querySelector(".modal");
+                    var trigger = document.querySelector("#trigger"+i);
+                    console.log(trigger);
+                    var closeButton = document.querySelector(".close-button");
+                }
+                function toggleModal() {
+                    modal.classList.toggle("show-modal");
+                }
+                
+                function windowOnClick(event) {
+                    if (event.target === modal) {
+                        toggleModal();
+                    }
+                }
+                
+                if(trigger && closeButton){
+                    closeButton.addEventListener("click", toggleModal);
+                    trigger.addEventListener("click", toggleModal);
+                }
+                window.addEventListener("click", windowOnClick);
+                
+            }
+        }
+        document.querySelector(".loading").style.visibility = "hidden";      
+        i++;
+    });
+});
+
+
+}

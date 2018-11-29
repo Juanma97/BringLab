@@ -5,10 +5,10 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <link rel="stylesheet" href="/css/style.css" type="text/css">
-    <title>Crear reservar</title>
+    <title>Crear reserva</title>
 </head>
 
-<body onload="loadData();">
+<body onload="getData()">
     
     <header>
         <h3 class="title"> <a class="indice" href="mainStudent.html"> BringLab | Estudiante - Crear reserva </a> </h3> 
@@ -20,25 +20,21 @@
     <div class="modal1">
         <div class="modal-content1">
             <span class="close-button1">&times;</span>
-            <h1>Aqui podra reservar un aula o un puesto de labortorio</h1>
+            <h3>Aqui podra reservar un aula o un puesto de labortorio</h3>
         </div>
     </div>
 
-    <div class="containerCR"> 
-        <div class="leftCR"> 
-            <div class="elementMenu">
-                <p>Elige una asignatura</p>
-                <select id="dropdown-subjects" onchange="loadDropDownLabData();"></select>
+    <h3 class="loading">Cargando..</h3>
+    <div id="container-reservations">
+        <div id="labs-classrooms">
+            <div id="labs">
+                <h3>Laboratorios</h3>
             </div>
-            <div class="elementMenu">
-                <p>Elija que quiere reservar</p>
-                <select id="dropdown-labs" onchange="reloadLabInformation();"></select>
+            <div id="classrooms">
+                <h3>Aulas</h3>
             </div>
         </div>
-        <div class="rigthCR"> 
-            <div id="container-info"></div>
-        </div>
-        <div class="clearCR"> </div>
+        <div class="information"></div>
     </div>
 
 </body>
@@ -55,6 +51,6 @@
     };
     firebase.initializeApp(config);
     </script>
-<script src="appCreateReservation.js"></script>
 <script src="app.js"></script>
+
 </html>

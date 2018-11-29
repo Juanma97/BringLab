@@ -419,3 +419,28 @@ header{
     transform: scale(1.0);
     transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s;
 }
+
+#container-reservations{
+    overflow: auto;
+    margin: 10% 0 0 10%;
+    height: 550px;
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-column-gap: 16px;
+    border: 1px solid black;
+    width: 1000px;
+}
+
+#labs-classrooms{
+    display: grid;
+    grid-template-rows: auto auto;
+    grid-row-gap: 16px;
+    border: 1px solid black;
+}
+#labs{
+
+}
+
+#classrooms{
+    
+}
