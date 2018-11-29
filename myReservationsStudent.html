@@ -7,7 +7,7 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <title>Mis reservas</title>
 </head>
-<body onload='getSubjects("Reserva ")'>
+<body onload='getReservations()'>
     
     <header>
         <h3 class="title"> <a class="indice" href="mainStudent.html">  BringLab | Alumno - Mis reservas </a> </h3>
@@ -19,11 +19,14 @@
     <div class="modal1">
         <div class="modal-content1">
             <span class="close-button1">&times;</span>
-            <h1>Aqui se le mostraran sus reservas y si desea modificarla o eiminarla</h1>
+            <h3>Aqui se le mostraran sus reservas y si desea modificarla o eiminarla</h3>
         </div>
     </div>
 
-    <div id="container-subjects"></div>
+    <div id="container-subjects">
+        <h3>Reservas del alumno</h3>
+        <h3 class="loading">Cargando..</h3>
+    </div>
     
 
     <!--<button class="trigger">Click here to trigger the modal!</button>-->

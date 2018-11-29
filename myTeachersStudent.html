@@ -7,7 +7,7 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <title>Mis alumnos</title>
 </head>
-<body>
+<body onload='getTeachers()'>
     
         <header> 
                 <h3 class="title"> <a class="indice" href="mainStudent.html"> BringLab | Estudiante - Mis profesores </a> </h3>
@@ -19,19 +19,13 @@
     <div class="modal1">
         <div class="modal-content1">
             <span class="close-button1">&times;</span>
-            <h1>Aqui puedes ver tus profesores en tus distintas asignaturas</h1>
+            <h3>Aqui puedes ver tus profesores en tus distintas asignaturas</h3>
         </div>
     </div>
-    <div id="left">
-        <h3 id="label">Elija asignatura</h3>
-        <select id="comboBox" onchange='getSubjects("Profesor ")'>
-            <option selected="true" disabled="true" value="--">--------</option>
-            <option value="GS1">Gestión del software 1</option>
-            <option value="GS2">Gestión del software 2</option>
-            <option value="IS1">Ingenieria del software 1</option>
-        </select>
+    <div id="container-subjects">
+        <h3>Profesores del alumno</h3>
+        <h3 class="loading">Cargando..</h3>
     </div>
-    <div id="container-subjects"></div>
 </body>
 <script src="https://www.gstatic.com/firebasejs/5.5.8/firebase.js"></script>
 <script>
