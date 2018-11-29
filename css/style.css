@@ -437,10 +437,14 @@ header{
     grid-row-gap: 16px;
     border: 1px solid black;
 }
-#labs{
-
+.container-main{
+    display:grid;
+    grid-template-columns: auto auto;
+    grid-column-gap: 16px;
 }
 
-#classrooms{
-    
+.add-tutoria{       
+    width: 100px;
+    height: 30px;
+    border: 1px solid blue;
 }

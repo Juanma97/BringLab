@@ -326,6 +326,7 @@ function getStudents() {
 });
 
 
+
 }
 
 function getSubjectsTeacher() {
@@ -377,3 +378,70 @@ function getSubjectsTeacher() {
 
 
 }
+
+function getTut() { 
+    document.querySelector(".loading").style.visibility = "visible";
+    var i = 1;
+    var database = firebase.database();
+    var leadsRef = database.ref('Teachers');
+    leadsRef.on('value', function(snapshot) {
+        snapshot.forEach(function(childSnapshot) {
+        var childData = childSnapshot.val();
+        console.log("child", childData.tutoriaTime)
+        for(let j in childData.tutoriaTime){
+            console.log("p", childData.tutoriaTime[j]) 
+                
+                if(childData.uid == firebase.auth().currentUser.uid){
+                    var div = document.createElement('div');
+                    div.className = 'trigger';
+                    div.id = 'trigger'+i; 
+                    div.onclick = "document.getElementById('id01').style.display='block'"
+                    div.textContent = childData.tutoriaTime[j]
+                    var container = document.getElementById("container-subjects");
+                    container.appendChild(div);
+                    var modal = document.querySelector(".modal");
+                    var trigger = document.querySelector("#trigger"+i);
+                    console.log(trigger);
+                    var closeButton = document.querySelector(".close-button");
+                }
+                function toggleModal() {
+                    modal.classList.toggle("show-modal");
+                }
+                
+                function windowOnClick(event) {
+                    if (event.target === modal) {
+                        toggleModal();
+                    }
+                }
+                
+                if(trigger && closeButton){
+                    closeButton.addEventListener("click", toggleModal);
+                    trigger.addEventListener("click", toggleModal);
+                }
+                window.addEventListener("click", windowOnClick);
+                
+            }
+        document.querySelector(".loading").style.visibility = "hidden";      
+        i++;
+    });
+});
+
+
+}
+
+    function addTuto() {
+        var database = firebase.database();
+    
+        database.ref('Messages/' + document.getElementById('texto').value+firebase.auth().currentUser.uid).set({
+          message: document.getElementById('texto').value,
+          sender: firebase.auth().currentUser.uid,
+          receiver : receptor
+        });
+        document.getElementById('texto').value=''
+    }
+
+
+
+
+
+
