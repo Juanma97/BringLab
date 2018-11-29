@@ -7,7 +7,7 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <title>Mis asignaturas alumno</title>
 </head>
-<body onload='getSubjects("Asignatura ")'>
+<body onload='getSubjectsTeacher()'>
     
         <header>
             <h3 class="title"> <a class="indice" href="mainTeacher.html">  BringLab | Profesor - Mis asignaturas </a> </h3>
@@ -23,7 +23,10 @@
         </div>
     </div>
 
-    <div id="container-subjects"></div>
+    <div id="container-subjects">
+        <h3 class="loading">Cargando..</h3>
+        <h3>Mis asignaturas</h3>
+    </div>
 
 
     <!--<button class="trigger">Click here to trigger the modal!</button>-->
