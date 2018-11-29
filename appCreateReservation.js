@@ -34,11 +34,20 @@ function loadData() {
     // El menú de las asignaturas se carga sólo una vez
     var subjectsDropDownMenu = document.getElementById("dropdown-subjects");
     var i = 0;
-    subjects.forEach(subject => {
-        var subjectOption = document.createElement("option");
-        subjectOption.value = i++;
-        subjectOption.text = subject;
-        subjectsDropDownMenu.add(subjectOption);
+    var database = firebase.database();
+    var leadsRef = database.ref('Students');
+    leadsRef.on('value', function(snapshot) {
+        snapshot.forEach(function(childSnapshot) {
+        var childData = childSnapshot.val();
+        if(childData.uid == firebase.auth().currentUser.uid){
+            for (var j in childData.subjects){
+                var subjectOption = document.createElement("option");
+                subjectOption.value = i++;
+                subjectOption.text = childData.subjects[j];
+                subjectsDropDownMenu.add(subjectOption);
+            }
+        }
+        });
     });
     subjectSelected = 0;
     loadDropDownLabData();
@@ -48,17 +57,28 @@ function loadData() {
 // Cada vez que se cambie de asignatura, recargar los labs que tiene
 function loadDropDownLabData() {
     var labsDropDownMenu = document.getElementById("dropdown-labs");
-    // Hay que eliminar los que ya tiene, porque si no se sobreponen opciones
-    while (labsDropDownMenu.length > 0) {
-        labsDropDownMenu.remove(labsDropDownMenu.length-1);
-    }
-    subjectSelected = document.getElementById("dropdown-subjects").value;
     var i = 0;
-    labs[subjectSelected].forEach(labsOfSubject => { // Only first subject
-        var labOption = document.createElement("option");
-        labOption.value = i++;
-        labOption.text = labsOfSubject;
-        labsDropDownMenu.add(labOption);
+    var database = firebase.database();
+    var leadsRef = database.ref('Labs');
+    var classes= database.ref('Classrooms');
+    leadsRef.on('value', function(snapshot) {
+        snapshot.forEach(function(childSnapshot) {
+        var childData = childSnapshot.val();
+        console.log(childData);
+        var subjectOption = document.createElement("option");
+        subjectOption.value = i++;
+        subjectOption.text = childData.name;
+-        labsDropDownMenu.add(subjectOption);
+        });
+    });
+    classes.on('value', function(snapshot) {
+        snapshot.forEach(function(childSnapshot) {
+        var childData = childSnapshot.val();
+            var subjectOption = document.createElement("option");
+            subjectOption.value = i++;
+            subjectOption.text = childData.name;
+            labsDropDownMenu.add(subjectOption);
+        });
     });
     reloadLabInformation();
 }
