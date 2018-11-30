@@ -11,7 +11,7 @@ function getReservation(){
         snapshot.forEach(function(childSnapshot) {
         var childData = childSnapshot.val();
         for(let j in childData.reservas){
-            console.log("j", childData.reservas[j]);
+            console.log("j", childData.reservas[j].reserva3);
         
         console.log(firebase.auth().currentUser);
         if(childData.uid == firebase.auth().currentUser.uid){
@@ -20,7 +20,7 @@ function getReservation(){
             div.className = 'trigger';
             div.id = 'trigger'+i;
             div.onclick = "document.getElementById('id01').style.display='block'"
-            div.textContent = childData.reservas[j];
+            div.textContent = childData.reservas[j].reserva3;
             var container = document.getElementById("container-subjects");
             container.appendChild(div);
             var modal = document.querySelector(".modal");
@@ -331,7 +331,7 @@ function getReservations() {
         var childData = childSnapshot.val();
         console.log("child", childData.reservas)
         for(let j in childData.reservas){
-            console.log("j", childData.reservas[j]);
+            console.log("j", childData.reservas[j].reserva3);
         
         console.log(firebase.auth().currentUser);
         if(childData.uid == firebase.auth().currentUser.uid){
@@ -339,7 +339,7 @@ function getReservations() {
             div.className = 'trigger';
             div.id = 'trigger'+i;
             div.onclick = "document.getElementById('id01').style.display='block'"
-            div.textContent = childData.reservas[j];
+            div.textContent = childData.reservas[j].reserva3;
             var container = document.getElementById("container-subjects");
             container.appendChild(div);
             var modal = document.querySelector(".modal");
