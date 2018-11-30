@@ -1,5 +1,5 @@
 // Variables globales
-
+var usuario="";
 var subjectSelected = 0;
 var labSelected = 0;
 var subjects = ["Redes de Computadores", "Ingeniería del Software II", "Fundamentos de los computadores"]
@@ -85,23 +85,105 @@ function loadDropDownLabData() {
 
 // Cada vez que se cambie de lab, recargar la info que tiene
 function reloadLabInformation() {
-    var name=document.getElementById("options")[document.getElementById("options").value].text;
+    var e = document.getElementById("dropdown-labs");
+    var strUser = e.options[e.selectedIndex].text;
     var database = firebase.database();
     var leadsRef = database.ref('Labs');
     var classes = database.ref('Classrooms');
-    var labInformationPanel = document.getElementById("container-info");
-    console.log(name);
-    leadsRef.on('value', function(snapshot) {
+    var inforpanel = document.getElementById("container-info");
+    while (inforpanel.firstChild) {
+        inforpanel.removeChild(inforpanel.firstChild);
+    }
+    leadsRef.once('value', function(snapshot) {
         snapshot.forEach(function(childSnapshot) {
         var childData = childSnapshot.val();
-        if(childData.name==name){
+        if(childData.name==strUser){
             console.log(childData.puestos);
+            var i=1;
+            for(var j in childData.puestos){
+                
+                console.log(childData.puestos[j].estado);
+                var div= document.createElement('div');
+                div.id = 'trigger'+i;
+                div.className="trigger";
+                if(childData.puestos[j].estado=="libre"){
+                    div.className+=" verde";
+                    div.textContent=j;
+                    inforpanel.appendChild(div);
+                    var modal = document.querySelector(".modal");
+                    var trigger = document.querySelector("#trigger"+i);
+                    var closeButton = document.querySelector(".close-button");
+                    var enviar = document.querySelector(".trigger");
+                    console.log(trigger);
+                    document.getElementById("puesto").textContent="¿Esta seguro de que desea reservar el "+trigger.textContent+"?";
+                    function toggleModal() {
+                        modal.classList.toggle("show-modal");
+                    }
+                    
+                    function windowOnClick(event) {
+                        if (event.target === modal) {
+                            toggleModal();
+                        }
+                        usuario=event.target.textContent;
+                    }
+        
+                    if(trigger && closeButton){
+                        closeButton.addEventListener("click", toggleModal);
+                        trigger.addEventListener("click", toggleModal);
+                    }
+                    window.addEventListener("click", windowOnClick);
+                    enviar.addEventListener("click", windowOnClick);
+                }else if(childData.puestos[j].estado=="ocupado"){
+                    div.className+=" rojo";
+                    div.textContent=j;
+                    inforpanel.appendChild(div);
+                }else{
+                    div.className+=" amarillo";
+                    div.textContent=j;
+                    inforpanel.appendChild(div);
+                }
+                i++;
+                
+            }
                 
 
         }
         });
     });
     
-    labSelected = document.getElementById("dropdown-labs").value;
-    labInformationPanel.innerHTML = "<p>" + labInformation[subjectSelected][labSelected] + "</p>";
+}
+function reservar(){
+    
+    var e = document.getElementById("dropdown-labs");
+    var strUser = e.options[e.selectedIndex].text;
+    var str= strUser+" | "+usuario;
+    
+    var database = firebase.database();
+    var students = database.ref('Students');
+    var labs = database.ref('Labs');
+    var receptor;
+    students.once('value', function(snapshot) {
+        snapshot.forEach(function(childSnapshot) {
+            var childStudent = childSnapshot.val();
+            if( childStudent.uid== firebase.auth().currentUser.uid){
+                database.ref('Students/'+childSnapshot.key+"/reservas").set({
+                    reserva5: str 
+                });
+            }
+        });
+    });
+    labs.once('value', function(snapshot) {
+        snapshot.forEach(function(childSnapshot) {
+            var childStudent = childSnapshot.val();
+            if( childStudent.name== strUser){
+                console.log('Labs/'+childSnapshot.key+"/puestos/"+usuario);
+                database.ref('Labs/'+childSnapshot.key+"/puestos/"+usuario).set({
+                    estado: "ocupado" 
+                });
+                usuario="";
+                reloadLabInformation();
+            }
+        });
+    });
+    
 }

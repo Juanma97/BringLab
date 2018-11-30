@@ -23,7 +23,14 @@
             <h1>Aqui podra reservar un aula o un puesto de labortorio</h1>
         </div>
     </div>
-
+    <div class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h1 id="puesto"></h1>
+            <p></p>
+            <button class="trigger" onclick="reservar()">Reservar</button>
+        </div>
+    </div>
     <div class="containerCR"> 
         <div class="leftCR"> 
             <div class="elementMenu">
@@ -32,7 +39,7 @@
             </div>
             <div class="elementMenu">
                 <p>Elija que quiere reservar</p>
-                <select id="dropdown-labs" onchange="reloadLabInformation();"></select>
+                <select id="dropdown-labs" onchange="reloadLabInformation();"><option disabled="true" selected="true" value="-----">-----</option></select>
             </div>
         </div>
         <div class="rigthCR"> 

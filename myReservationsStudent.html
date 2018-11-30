@@ -7,7 +7,7 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <title>Mis reservas</title>
 </head>
-<body onload='getSubjects("Reserva ")'>
+<body onload='getReservation()'>
     
     <header>
         <h3 class="title"> <a class="indice" href="mainStudent.html">  BringLab | Alumno - Mis reservas </a> </h3>
@@ -30,11 +30,10 @@
     <div class="modal">
         <div class="modal-content">
             <span class="close-button">&times;</span>
-            <h1>Información de la reserva</h1>
-            <p>Hora: 10:00 - 11:00</p>
-            <p>Aula 3-2 Puesto 120</p>
-            <button id="exit-button" onclick="">Modificar</button>
-            <button id="exit-button" onclick="">Cancelar</button>
+            <h1 id="reserva"></h1>
+            <p></p>
+            <button class="trigger" id="exit-button" onclick="">Modificar</button>
+            <button class="trigger" id="exit-button" onclick="cancelar()">Cancelar</button>
         </div>
     </div>
 </body>

@@ -417,3 +417,17 @@ header{
     transform: scale(1.0);
     transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s;
 }
+.verde{
+    background-color: rgb(25, 230, 6);
+    text-align: center;
+}
+.rojo{
+    background-color: rgb(255, 0, 0);
+    cursor: auto;
+    text-align: center;
+}
+.amarillo{
+    background-color: rgb(229, 255, 0);
+    cursor: auto;
+    text-align: center;
+}
