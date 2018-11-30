@@ -1,3 +1,4 @@
+var usuario='';
 function getSubjects2() {
     document.querySelector(".loading").style.visibility = "visible";
     var i = 1;
@@ -46,30 +47,93 @@ function getSubjects2() {
     });
 });
 }
+function send() {
+    var database = firebase.database();
+    var students = database.ref('Students');
+    var teachers = database.ref('Teachers');
+    var receptor;
+    students.on('value', function(snapshot) {
+        snapshot.forEach(function(childSnapshot) {
+            var childStudent = childSnapshot.val();
+            if( childStudent.name== usuario){
+                receptor=childStudent.uid;
+            }
+        });
+    });
+    teachers.on('value', function(snapshot) {
+        snapshot.forEach(function(childSnapshot) {
+            var childStudent = childSnapshot.val();
+            if( childStudent.name== usuario){
+                receptor=childStudent.uid;
+            }
+        });
+    });
+    database.ref('Messages/' + document.getElementById('texto').value+firebase.auth().currentUser.uid).set({
+      message: document.getElementById('texto').value,
+      sender: firebase.auth().currentUser.uid,
+      receiver : receptor
+    });
+    document.getElementById('texto').value=''
+  }
+
 function mensajes() {
     var i = 1;
     var database = firebase.database();
     var leadsRef = database.ref('Messages');
+    var students = database.ref('Students');
+    var teachers = database.ref('Teachers');
+    var closeButton = document.querySelector(".close-button");
+    var enviar = document.querySelector(".trigger");
     var hr = document.createElement('hr');
-    leadsRef.on('value', function(snapshot) {
+    var modal = document.querySelector(".modal");
+    leadsRef.once('value', function(snapshot) {
         snapshot.forEach(function(childSnapshot) {
         var childData = childSnapshot.val();
         if(childData.receiver == firebase.auth().currentUser.uid){
-            console.log("hola")
-            var h2 = document.createElement('h2');
+            var h2 = document.createElement('h3');
             var p = document.createElement('p');
-            h2.textContent = "Mensaje "+i;
+            students.on('value', function(snapshot) {
+                snapshot.forEach(function(childSnapshot) {
+                    var childStudent = childSnapshot.val();
+                    if( childStudent.uid== childData.sender){
+                        h2.textContent=childStudent.name;
+                    }
+                });
+            });
+            teachers.on('value', function(snapshot) {
+                snapshot.forEach(function(childSnapshot) {
+                    var childStudent = childSnapshot.val();
+                    if( childStudent.uid== childData.sender){
+                        h2.textContent=childStudent.name;
+                    }
+                });
+            });
             p.textContent = childData.message;
+            
+            h2.id = 'id'+i;
+            h2.addEventListener("click", windowOnClick);
             document.getElementById('message').appendChild(hr);
             document.getElementById('message').appendChild(h2);
             document.getElementById('message').appendChild(p);
             i++;
         }
+        
     });
     i--;
+    
     document.getElementById('count').textContent="Mensajes: "+i;
     
 });
+function windowOnClick(event) {
+    if(modal.className==='modal'){
+        modal.className= 'modal show-modal';
+        usuario=event.target.textContent;
+    }else{
+        modal.className= 'modal';
+    }
+}
+closeButton.addEventListener("click", windowOnClick);
+enviar.addEventListener("click", windowOnClick);
 }
 
 function login(){

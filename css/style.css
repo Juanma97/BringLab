@@ -14,7 +14,16 @@
     margin: 32px;
     font-family: 'Roboto', sans-serif;
 }
-
+.trigger {
+    width: 300px;
+    height: 20px;
+    margin: 16px;
+}
+.centrar {
+    width: 300px;
+    height: 20px;
+    margin: 16px;
+}
 #faq{
     display: flex;
     position: fixed;
@@ -100,6 +109,9 @@ header{
     padding: 16px;
 }
 .message h2{
+    padding: 16px;
+}
+.message h3{
     padding: 16px;
 }
 .message:hover{
@@ -448,4 +460,7 @@ header{
     height: 30px;
     border: 1px solid blue;
     margin: 0 0 0 16px;
+}
+.centrado{
+    text-align: center;
 }
