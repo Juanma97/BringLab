@@ -166,8 +166,8 @@ function reservar(){
         snapshot.forEach(function(childSnapshot) {
             var childStudent = childSnapshot.val();
             if( childStudent.uid== firebase.auth().currentUser.uid){
-                database.ref('Students/'+childSnapshot.key+"/reservas").set({
-                    reserva5: str 
+                database.ref('Students/'+childSnapshot.key + "/reservas").child(str).set({
+                    reserva3: str 
                 });
             }
         });
