@@ -464,3 +464,17 @@ header{
 .centrado{
     text-align: center;
 }
+.verde{
+    background-color: rgb(25, 230, 6);
+    text-align: center;
+}
+.rojo{
+    background-color: rgb(255, 0, 0);
+    cursor: auto;
+    text-align: center;
+}
+.amarillo{
+    background-color: rgb(229, 255, 0);
+    cursor: auto;
+    text-align: center;
+}
