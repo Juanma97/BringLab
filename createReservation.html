@@ -8,7 +8,7 @@
     <title>Crear reserva</title>
 </head>
 
-<body onload="getData()">
+<body onload="loadData()">
     
     <header>
         <h3 class="title"> <a class="indice" href="mainStudent.html"> BringLab | Estudiante - Crear reserva </a> </h3> 
@@ -23,6 +23,7 @@
             <h3>Aqui podra reservar un aula o un puesto de labortorio</h3>
         </div>
     </div>
+    <h3 class="loading">Cargando..</h3>
     <div class="modal">
         <div class="modal-content">
             <span class="close-button">&times;</span>
@@ -60,5 +61,5 @@
     firebase.initializeApp(config);
     </script>
 <script src="app.js"></script>
-
+<script src="appCreateReservation.js"></script>
 </html>
