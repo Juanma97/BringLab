@@ -429,7 +429,7 @@ function getTut() {
 
 }
 
-    function addTuto() {
+    function addTuto() { 
         var database = firebase.database();
     
         database.ref('Messages/' + document.getElementById('texto').value+firebase.auth().currentUser.uid).set({

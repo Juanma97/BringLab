@@ -133,7 +133,7 @@ header{
 #container-form-login input[type="text"]{
     margin: 32px 16px 16px 16px;
     padding: 16px;
-    background: none;
+    background: none; 
     border: none;
     border-bottom: 2px solid rgb(48, 166, 206);
 }
@@ -447,4 +447,5 @@ header{
     width: 100px;
     height: 30px;
     border: 1px solid blue;
+    margin: 0 0 0 16px;
 }
