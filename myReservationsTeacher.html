@@ -5,38 +5,33 @@
     <link rel="stylesheet" href="/css/style.css" type="text/css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-    <title>Reserva Profesor</title>
+    <title>Tutoria Profesor</title>
 </head>
 
-<body>
+
+
+<body onload="getTut()"> 
     <header>
-        <h3 class="title"> <a class="indice" href="mainTeacher.html">  BringLab | Profesor - Mis reservas </a> </h3>
+        <h3 class="title"> <a class="indice" href="mainTeacher.html">  BringLab | Profesor - Mis Tutorias </a> </h3>
         <div id="profile-header">
             <i class="large material-icons" onclick="signout()">exit_to_app</i>
         </div>
-    </header>
+    </header> 
     <button class="trigger1" id="faq">?</button>
     <div class="modal1">
         <div class="modal-content1">
             <span class="close-button1">&times;</span>
-            <h1>Aqui puedes ver tus reservas y cancelarlas si lo deseas</h1>
+            <h1>Aqui puedes ver tus tutorias y modificarlas si lo deseas</h1>
         </div>
     </div>
+        <div id="container-subjects">
+            <h3>Tutorias del profesor</h3>
+            <h3 class="loading">Cargando...</h3>
+            <button class="add-tutoria">Añadir tutoria</button> 
+        </div> 
 
-    <div class="containerCR"> 
-        <div> 
-            <div class="panel">
-                <div><input type="button" onclick="highlightButton(1)" id="button-1" class="buttonStatus" value="Tutoría 1"></div>
-                <div><input type="button" onclick="highlightButton(2)" id="button-2" class="buttonStatus" value="Tutoría 2"></div>
-                <div><input type="button" onclick="highlightButton(3)" id="button-3" class="buttonStatus" value="Tutoría 3"></div>
-            </div>
-            <div><input type="button" class="bigButton" value="Modificar horarios"></div>
-        </div>
-        <div>
-            <div class="panel" id="infoTutoria"></div>
-            <div><input type="button" class="bigButton" value="Añadir horarios"></div>
-        </div>
-    </div>
+    
+
 
 </body>
 <script src="https://www.gstatic.com/firebasejs/5.5.8/firebase.js"></script>

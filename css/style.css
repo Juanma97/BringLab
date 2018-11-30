@@ -14,11 +14,7 @@
     margin: 32px;
     font-family: 'Roboto', sans-serif;
 }
-.trigger{
-    width: 300px;
-    height: 20px;
-    margin: 16px;
-}
+
 #faq{
     display: flex;
     position: fixed;
@@ -137,7 +133,7 @@ header{
 #container-form-login input[type="text"]{
     margin: 32px 16px 16px 16px;
     padding: 16px;
-    background: none;
+    background: none; 
     border: none;
     border-bottom: 2px solid rgb(48, 166, 206);
 }
@@ -202,11 +198,19 @@ header{
 }
 
 #container-subjects{
-    width: 50%;
+    width: 70%;
     height: 500px;
-    margin: 10% 64px 32px 64px;
+    position: absolute;
+    top: 100px;
+    margin: 16px;
+    
     overflow: auto;
 }
+#container-subjects h3{
+    margin: 16px;
+    font-family: 'Roboto', sans-serif;
+}
+
 #left{
     float: left
 }
@@ -223,6 +227,10 @@ header{
     color: white;
     font-family: 'Roboto', sans-serif;
     cursor: pointer;
+    width: 400px;
+    height: 20px;
+    padding: 20px;
+    margin: 16px;
 }
 
 .trigger:hover{
@@ -371,6 +379,7 @@ header{
 }
 
 .modal1 {
+    font-family: 'Roboto', sans-serif;
     position: fixed;
     left: 0;
     top: 0;
@@ -383,6 +392,7 @@ header{
     transition: visibility 0s linear 0.25s, opacity 0.25s 0s, transform 0.25s;
 }
 .modal-content1 {
+    font-family: 'Roboto', sans-serif;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -409,4 +419,34 @@ header{
     visibility: visible;
     transform: scale(1.0);
     transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s;
+}
+
+#container-reservations{
+    overflow: auto;
+    margin: 10% 0 0 10%;
+    height: 550px;
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-column-gap: 16px;
+    border: 1px solid black;
+    width: 1000px;
+}
+
+#labs-classrooms{
+    display: grid;
+    grid-template-rows: auto auto;
+    grid-row-gap: 16px;
+    border: 1px solid black;
+}
+.container-main{
+    display:grid;
+    grid-template-columns: auto auto;
+    grid-column-gap: 16px;
+}
+
+.add-tutoria{       
+    width: 100px;
+    height: 30px;
+    border: 1px solid blue;
+    margin: 0 0 0 16px;
 }
