@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+    <title>Crear reserva</title>
+</head>
+
+<body onload="loadData()">
+    
+    <header>
+        <h3 class="title"> <a class="indice" href="mainStudent.html"> BringLab | Estudiante - Crear reserva </a> </h3> 
+        <div id="profile-header">
+            <i class="large material-icons" onclick="signout()">exit_to_app</i>
+        </div>
+    </header>
+    <button class="trigger1" id="faq">?</button>
+    <div class="modal1">
+        <div class="modal-content1">
+            <span class="close-button1">&times;</span>
+            <h3>Aqui podra reservar un aula o un puesto de labortorio</h3>
+        </div>
+    </div>
+    <h3 class="loading">Cargando..</h3>
+    <div class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h1 id="puesto"></h1>
+            <p></p>
+            <button class="trigger" onclick="reservar()">Reservar</button>
+        </div>
+    </div>
+    <div class="containerCR"> 
+        <div class="leftCR"> 
+            <div class="elementMenu">
+                <p>Elige una asignatura</p>
+                <select id="dropdown-subjects" onchange="loadDropDownLabData();"></select>
+            </div>
+            <div class="elementMenu">
+                <p>Elija que quiere reservar</p>
+                <select id="dropdown-labs" onchange="reloadLabInformation();"><option disabled="true" selected="true" value="-----">-----</option></select>
+            </div>
+        </div>
+        <div class="rigthCR"> 
+            <div id="container-info"></div>
+        </div>
+        <div class="clearCR"> </div>
+    </div> 
+
+</body>
+<script src="https://www.gstatic.com/firebasejs/5.5.8/firebase.js"></script>
+<script>
+    // Initialize Firebase
+    var config = {
+        apiKey: "AIzaSyB0SRTYFWQ6J8RFu4dJfhPfkJaG3GzNNOM",
+        authDomain: "bringlab-818c0.firebaseapp.com",
+        databaseURL: "https://bringlab-818c0.firebaseio.com",
+        projectId: "bringlab-818c0",
+        storageBucket: "bringlab-818c0.appspot.com",
+        messagingSenderId: "256629824808"
+    };
+    firebase.initializeApp(config);
+    </script>
+<script src="app.js"></script>
+<script src="appCreateReservation.js"></script>
+</html>

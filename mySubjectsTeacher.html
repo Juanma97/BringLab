@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <title>Mis asignaturas alumno</title>
+</head>
+<body onload='getSubjectsTeacher()'>
+    
+        <header>
+            <h3 class="title"> <a class="indice" href="mainTeacher.html">  BringLab | Profesor - Mis asignaturas </a> </h3>
+                <div id="profile-header">
+                    <i class="large material-icons" onclick="signout()">exit_to_app</i>
+                </div>
+            </header>
+    <button class="trigger1" id="faq">?</button>
+    <div class="modal1">
+        <div class="modal-content1">
+            <span class="close-button1">&times;</span>
+            <h3>Aqui se le mostraran sus asignaturas e informacion sobre ellas</h3>
+        </div>
+    </div>
+
+    <div id="container-subjects">
+        <h3 class="loading">Cargando..</h3>
+        <h3>Mis asignaturas</h3>
+    </div>
+
+
+    <!--<button class="trigger">Click here to trigger the modal!</button>-->
+    <div class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h1>Información de la asignatura</h1>
+            <p>Horario: 10:00 - 11:00</p>
+            <p>Aula 3-2</p>
+        </div>
+    </div>
+</body>
+<script src="https://www.gstatic.com/firebasejs/5.5.8/firebase.js"></script>
+<script>
+    // Initialize Firebase
+    var config = {
+        apiKey: "AIzaSyB0SRTYFWQ6J8RFu4dJfhPfkJaG3GzNNOM",
+        authDomain: "bringlab-818c0.firebaseapp.com",
+        databaseURL: "https://bringlab-818c0.firebaseio.com",
+        projectId: "bringlab-818c0",
+        storageBucket: "bringlab-818c0.appspot.com",
+        messagingSenderId: "256629824808"
+    };
+    firebase.initializeApp(config);
+    </script>
+<script src="app.js"></script>
+</html>

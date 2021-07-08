@@ -2,31 +2,37 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="/css/style.css" type="text/css">
-    <link rel="stylesheet" href="/css/spinner.css" type="text/css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-    <title>Login</title>
+    <title>Tutoria Profesor</title>
 </head>
-<body id="login-body">
-    <div id="container-login">
-        <h3>BringLab</h3>
-        <div id="container-form-login">
-            <input id="user" type="text" placeholder="DNI">
-            <input id="pass" type="password" placeholder="Password">
-            <input class="login-btn" type="submit" value="Iniciar Sesión" onclick="login()">
+
+
+
+<body onload="getTut()"> 
+    <header>
+        <h3 class="title"> <a class="indice" href="mainTeacher.html">  BringLab | Profesor - Mis Tutorias </a> </h3>
+        <div id="profile-header">
+            <i class="large material-icons" onclick="signout()">exit_to_app</i>
         </div>
-    </div>
-    <div class="lds-ring"><div></div><div></div><div></div><div></div></div>
-    <h3 class="loading">Cargando..</h3>
+    </header> 
     <button class="trigger1" id="faq">?</button>
     <div class="modal1">
         <div class="modal-content1">
             <span class="close-button1">&times;</span>
-            <h3>Solo podran acceder usuarios registrados por la universidad, con su usuario y contraseña</h3>
+            <h1>Aqui puedes ver tus tutorias y modificarlas si lo deseas</h1>
         </div>
     </div>
+        <div id="container-subjects">
+            <h3>Tutorias del profesor</h3>
+            <h3 class="loading">Cargando...</h3>
+            <button class="add-tutoria">Añadir tutoria</button> 
+        </div> 
+
+    
+
+
 </body>
 <script src="https://www.gstatic.com/firebasejs/5.5.8/firebase.js"></script>
 <script>

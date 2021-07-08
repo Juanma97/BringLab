@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Alumno</title>
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+</head>
+<body onload='mensajes()'>
+    <header>
+        <h3 class="title"> BringLab | Alumno  </h3>
+        <div id="profile-header">
+            <i class="large material-icons" onclick="signout()">exit_to_app</i>
+        </div>
+    </header>
+    
+    <div id="container-student">
+        <div class="menu-teacher" onclick="location.href='createReservation.html';"><h3>Realizar una reserva</h3></div>
+        <div class="menu-teacher" onclick="location.href='myTeachersStudent.html';"><h3>Mis profesores</h3></div>
+        <div class="menu-teacher" onclick="location.href='myReservationsStudent.html';"><h3>Gestionar reservas</h3></div>
+        <div class="menu-teacher" onclick="location.href='mySubjectsStudent.html';"><h3>Mis asignaturas</h3></div>
+    </div>
+    <button class="trigger1" id="faq">?</button>
+    <div class="modal1">
+        <div class="modal-content1">
+            <span class="close-button1">&times;</span>
+            <h3>Este es el menú principal de su usuario, desde aqui podrá dirigirse a sus distintas utilidades</h3>
+        </div>
+    </div>
+    <div class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h2 class='centrado'>Responder a</h2>
+            <h2 class='centrado' id='nombre'></h2>
+            <input class='centrar' id='texto' type="text">
+            <button class="trigger" onclick='send()'>Enviar</button>
+        </div>
+    </div>
+    <div id="message" class="message">
+        <p id="count"></p>
+    </div>
+</body>
+<script src="https://www.gstatic.com/firebasejs/5.5.8/firebase.js"></script>
+<script>
+    // Initialize Firebase
+    var config = {
+        apiKey: "AIzaSyB0SRTYFWQ6J8RFu4dJfhPfkJaG3GzNNOM",
+        authDomain: "bringlab-818c0.firebaseapp.com",
+        databaseURL: "https://bringlab-818c0.firebaseio.com",
+        projectId: "bringlab-818c0",
+        storageBucket: "bringlab-818c0.appspot.com",
+        messagingSenderId: "256629824808"
+    };
+    firebase.initializeApp(config);
+    </script>
+<script src="app.js"></script>
+</html>
